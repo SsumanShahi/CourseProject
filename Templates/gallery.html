@@ -1,0 +1,143 @@
+{% extends 'include/basic.html' %}
+{% block title %} Max Pro | Gallery {%endblock%}
+{% load static %}
+{% block body %}
+ <!-- Page breadcrumb -->
+ <section id="mu-page-breadcrumb">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+         <div class="mu-page-breadcrumb-area">
+           <h2>Gallery</h2>
+           <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">Gallery</li>
+          </ol>
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ <!-- End breadcrumb -->
+ <!-- Start gallery  -->
+ <section id="mu-gallery">
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12">
+         <div class="mu-gallery-area">
+          <!-- start title -->
+          <div class="mu-title">
+            <h2>Some Moments</h2>
+            <p>Sometimes when I walk into a gallery and I see someone's work, I think to myself, 'Gee, I wish I had done that.'<br>
+                -- <b>Richard Prince</b></p>
+          </div>
+          <!-- end title -->
+          <!-- start gallery content -->
+          <div class="mu-gallery-content">
+
+            <!-- Start gallery menu -->
+              <div class="mu-gallery-top">
+                  <ul>
+                      <li class="filter active" data-filter="all">All</li>
+                      <li class="filter" data-filter=".lab">Lab</li>
+                      <li class="filter" data-filter=".classroom">Class Room</li>
+                      <li class="filter" data-filter=".students">Students</li>
+                      <li class="filter" data-filter=".others">Others</li>
+                  </ul>
+              </div>
+            <!-- End gallery menu -->
+
+            <div class="mu-gallery-body">
+              <ul id="mixit-container" class="row">
+                <!-- start single gallery image -->
+                  {% for labgallery in labgallery%}
+                    <li class="col-md-4 col-sm-6 col-xs-12 mix lab">
+                      <div class="mu-single-gallery">
+                        <div class="mu-single-gallery-item">
+                          <div class="mu-single-gallery-img">
+                           <img alt="img" src="{{ labgallery.gallery_image.url }}" />
+                          </div>
+                          <div class="mu-single-gallery-info">
+                            <div class="mu-single-gallery-info-inner">
+                              <h4>{{labgallery.gallery_title}}</h4>
+                              <p>MaxPro Gallery - {{labgallery.gallery_cat}}</p>
+                              <a href="{{ labgallery.gallery_image.url }}" data-fancybox-group="gallery" class="fancybox"><span class="fa fa-eye"></span></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  {% endfor %}
+
+                  {% for classroomgallery in classroomgallery %}
+                <!-- start single gallery image -->
+                <li class="col-md-4 col-sm-6 col-xs-12 mix classroom">
+                  <div class="mu-single-gallery">
+                    <div class="mu-single-gallery-item">
+                      <div class="mu-single-gallery-img">
+                        <a href="#"><img alt="img" src="{{ classroomgallery.gallery_image.url }}"></a>
+                      </div>
+                       <div class="mu-single-gallery-info">
+                        <div class="mu-single-gallery-info-inner">
+                          <h4>{{classroomgallery.gallery_title}}</h4>
+                          <p>MaxPro Gallery - {{classroomgallery.gallery_cat}}</p>
+                          <a href="{{ classroomgallery.gallery_image.url }}"data-fancybox-group="gallery" class="fancybox"><span class="fa fa-eye"></span></a>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                  {%endfor%}
+
+                {% for othersgallery in othersgallery %}
+                <!-- start single gallery image -->
+                <li class="col-md-4 col-sm-6 col-xs-12 mix others">
+                  <div class="mu-single-gallery">
+                    <div class="mu-single-gallery-item">
+                      <div class="mu-single-gallery-img">
+                        <a href="#"><img alt="img" src="{{ othersgallery.gallery_image.url }}"></a>
+                      </div>
+                      <div class="mu-single-gallery-info">
+                        <div class="mu-single-gallery-info-inner">
+                          <h4>{{othersgallery.gallery_title}}</h4>
+                          <p>MaxPro Gallery - {{othersgallery.gallery_cat}}</p>
+                          <a href="{{ othersgallery.gallery_image.url }}" data-fancybox-group="gallery" class="fancybox"><span class="fa fa-eye"></span></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                  {%endfor%}
+
+                  {% for Studentgallery in Studentgallery %}
+                <!-- start single gallery image -->
+                <li class="col-md-4 col-sm-6 col-xs-12 mix students">
+                  <div class="mu-single-gallery">
+                    <div class="mu-single-gallery-item">
+                      <div class="mu-single-gallery-img">
+                        <a href="#"><img alt="img" src="{{ Studentgallery.gallery_image.url }}"></a>
+                      </div>
+                       <div class="mu-single-gallery-info">
+                        <div class="mu-single-gallery-info-inner">
+                        <h4>{{Studentgallery.gallery_title}}</h4>
+                          <p>MaxPro Gallery - {{Studentgallery.gallery_cat}}</p>
+                          <a href= "{{ Studentgallery.gallery_image.url }}" data-fancybox-group="gallery" class="fancybox"><span class="fa fa-eye"></span></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                  {%endfor%}
+              </ul>
+            </div>
+          </div>
+          <!-- end gallery content -->
+         </div>
+       </div>
+     </div>
+   </div>
+ </section>
+ <!-- End gallery  -->
+
+{%endblock%}

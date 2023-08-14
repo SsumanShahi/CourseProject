@@ -1,0 +1,104 @@
+{% extends 'include/basic.html' %}
+{% block title %} Max Pro | Course {%endblock%}
+{% load static %}
+{% block body %}
+
+<!--START SCROLL TOP BUTTON -->
+<a class="scrollToTop" href="#">
+    <i class="fa fa-angle-up"></i>
+</a>
+<!-- END SCROLL TOP BUTTON -->
+<!--asasafsg-->
+<!-- Page breadcrumb -->
+<section id="mu-page-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-page-breadcrumb-area">
+                    <h2>Course</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">Course</li>
+                        <li><span class="current">Page {{ page.number }} of {{ page.paginator.num_pages }} </span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End breadcrumb -->
+<section id="mu-course-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-course-content-area">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <!-- start course content container -->
+                            <div class="mu-course-container">
+                                <div class="row">
+
+                                    {% for coursesinfo in page.object_list %}
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="mu-latest-course-single">
+                                            <figure class="mu-latest-course-img">
+                                                <a href="#"><img src="{{ coursesinfo.course_image.url }}" alt="img"
+                                                                 height="230"></a>
+                                                <figcaption class="mu-latest-course-imgcaption">
+                                                    <a href="#">{{coursesinfo.course_category}}</a>
+                                                    <span><i
+                                                            class="fa fa-clock-o"></i>{{coursesinfo.course_duration}}</span>
+                                                </figcaption>
+                                            </figure>
+                                            <div class="mu-latest-course-single-content">
+                                                <h4><a href="#">{{coursesinfo.course_title}}</a></h4>
+                                                <p>{{coursesinfo.course_desc | slice:"0:150"}}<b>... </b></p>
+                                                <div class="mu-latest-course-single-contbottom">
+                                                    <a class="mu-course-details"
+                                                       href="/courseDetails/{{coursesinfo.id}}">Details</a>
+
+                                                    <span class="mu-course-price"><a href="/enroll/{{coursesinfo.id}}"><button class="btn btn-danger">Enroll</button> </a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {%endfor%}
+                                </div>
+                            </div>
+                            <!-- end course content container -->
+                            <!-- start course pagination -->
+                            <div class="mu-pagination">
+                                <nav>
+                                    <ul class="pagination">
+                                        <li>
+                                            {% if page.has_previous %}
+                                            <a href="{% url 'course' %}?page={{ page.previous_page_number }}"
+                                               aria-label="Previous"><span class="fa fa-angle-left"></span> Prev</a>
+                                            {% endif %}
+                                        </li>
+                                        {% for page_Range in page.paginator.page_range %}
+                                        {% if forloop.counter < 5 %}
+                                        <li class="active"><a href="?page={{forloop.counter}}">{{forloop.counter}}</a>
+                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
+                                        <li>
+                                            {% if page.has_next %}
+                                            <a href="{% url 'course' %}?page={{ page.next_page_number }}"
+                                               aria-label="Next">Next <span class="fa fa-angle-right"></span></a>
+                                            {% endif %}
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- end course pagination -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}

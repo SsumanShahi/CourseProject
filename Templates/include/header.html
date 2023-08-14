@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+</head>
+<body>
+{% load static %}
+
+  <!-- Start header  -->
+  <header id="mu-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="mu-header-area">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="mu-header-top-left">
+                  <div class="mu-top-email">
+                    <i class="fa fa-envelope"></i>
+                    <span>maxpro.institute@gmail.com</span>
+                  </div>
+                  <div class="mu-top-phone">
+                    <i class="fa fa-phone"></i>
+                    <span>01-5234333, 9841392282</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="mu-header-top-right">
+                  <nav>
+                    <ul class="mu-top-social-nav">
+                      <li><a href="http:\\www.facebook.com"><span class="fa fa-facebook"></span></a></li>
+                      <li><a href="http:\\www.twitter.com"><span class="fa fa-twitter"></span></a></li>
+                      <li><a href="http:\\www.googleplus.com"><span class="fa fa-google-plus"></span></a></li>
+                      <li><a href="http:\\www.linkedin.com"><span class="fa fa-linkedin"></span></a></li>
+                      <li><a href="http:\\www.youtube.com"><span class="fa fa-youtube"></span></a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!--aaaa-->
+  <!-- End header  -->
+  <!-- Start menu -->
+  <section id="mu-menu">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- LOGO -->
+          <!-- TEXT BASED LOGO -->
+          <a class="navbar-brand" href="/"><i><img src="{% static 'assets/img/logo.png'%}" height="48" width=""></i><span>Maxpro</span></a>
+          <!-- IMG BASED LOGO  -->
+          <!-- <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt="logo"></a> -->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul id="top-menu" class="nav navbar-nav navbar-right main-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/course">Course Offered</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="#" id="mu-search-icon"><i class="fa fa-search"></i></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+  </section>
+  <!-- End menu -->
+  <!-- Start search box -->
+  <div id="mu-search">
+    <div class="mu-search-area">
+      <button class="mu-search-close"><span class="fa fa-close"></span></button>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <form method="get" class="mu-search-form" action="/search">
+              {% csrf_token %}
+              <input type="search" name="query" id="query" placeholder="Type Your Keyword(s) & Hit Enter" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End search box -->
+</body>
+</html>
+

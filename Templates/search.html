@@ -1,0 +1,129 @@
+{% extends 'include/basic.html' %}
+{% block title %} Max Pro | Search {%endblock%}
+{% load static %}
+{% block body %}
+
+
+<!--START SCROLL TOP BUTTON -->
+<a class="scrollToTop" href="#">
+    <i class="fa fa-angle-up"></i>
+</a>
+<!-- END SCROLL TOP BUTTON -->
+
+<!-- Page breadcrumb -->
+<section id="mu-page-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-page-breadcrumb-area">
+                    <h2>Course</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">Course</li>
+                        <li><span class="current">Page {{ course.number }} of {{ course.paginator.num_pages }} </span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End breadcrumb -->
+
+
+<section id="mu-course-content">
+    <div class="container">
+        <div class="row">
+
+            <div class="container-fluid p-0" style="width:70%; margin:auto; font-size:25px; padding:10px;">
+                <div class="alert-warning alert-dismissible" role="alert">
+                    {% if course|length < 1 %}
+                    <p>Course Not found</p>
+                    <p> Your search for <b>{{query}}</b> did not match any in our database</p>
+                    <ul>
+                        <li>Try different Keywords</li>
+                    </ul>
+                    {%endif%}
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="mu-course-content-area">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <!-- start course content container -->
+                            <div class="mu-course-container">
+                                <div class="row">
+
+                                    {% for coursesinfo in course.object_list %}
+                                    <div class="col-md-6 col-sm-6">
+                                        <div class="mu-latest-course-single">
+                                            <figure class="mu-latest-course-img">
+                                                <a href="#"><img src="{{ coursesinfo.course_image.url }}" alt="img"
+                                                                 height="230"></a>
+                                                <figcaption class="mu-latest-course-imgcaption">
+                                                    <a href="#">{{coursesinfo.course_category}}</a>
+                                                    <span><i
+                                                            class="fa fa-clock-o"></i>{{coursesinfo.course_duration}}</span>
+                                                </figcaption>
+                                            </figure>
+                                            <div class="mu-latest-course-single-content">
+                                                <h4><a href="#">{{coursesinfo.course_title}}</a></h4>
+                                                <p>{{coursesinfo.course_desc | slice:"0:150"}}<b>... </b></p>
+                                                <div class="mu-latest-course-single-contbottom">
+                                                    <a class="mu-course-details"
+                                                       href="/courseDetails/{{coursesinfo.id}}">Details</a>
+                                                    <span class="mu-course-price"> </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {%endfor%}
+                                </div>
+                            </div>
+                            <!-- end course content container -->
+                        </div>
+                        <div class="col-md-3">
+                            <!-- start sidebar -->
+                            <aside class="mu-sidebar">
+                                <!-- start single sidebar -->
+                                <div class="mu-single-sidebar">
+                                    <h3>Categories</h3>
+                                    <ul class="mu-sidebar-catg">
+                                        <li><a href="">Programming</a></li>
+                                        <li><a href="">Graphics Designing Course</a></li>
+                                        <li><a href="">Networking</a></li>
+                                        <li><a href="">Offices Packages</a></li>
+                                        <li><a href="">Laptop Chip Level Repairing</a></li>
+                                    </ul>
+                                </div>
+                                <!-- end single sidebar -->
+
+                                <!-- start single sidebar -->
+                                <div class="mu-single-sidebar">
+                                    <h3>Tags Cloud</h3>
+                                    <div class="tag-cloud">
+                                        <a>Web Pages</a>
+                                        <a>Database</a>
+                                        <a>Graphics design</a>
+                                        <a>Video Edition</a>
+                                        <a>Networking</a>
+                                        <a>Programing</a>
+                                        <a>FACT OR SWASTIK</a>
+                                        <a>Types and Entry</a>
+                                        <a>Auto Cad 2D & 3D</a>
+                                        <a>Repairing Training</a>
+                                    </div>
+                                </div>
+                                <!-- end single sidebar -->
+                            </aside>
+                            <!-- / end sidebar -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}

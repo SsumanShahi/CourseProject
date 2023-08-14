@@ -1,0 +1,161 @@
+{% extends 'include/Basic.html' %}
+{% block title %} Course Detail | {{courseinfo.course_title}} {%endblock%}
+{% load static %}
+{% block body %}
+
+{% load static %}
+<!-- Page breadcrumb -->
+<section id="mu-page-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-page-breadcrumb-area">
+                    <h2>Course Detail</h2>
+                    <ol class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">Course Detail</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- End breadcrumb -->
+<section id="mu-course-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-course-content-area">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <!-- start course content container -->
+                            <div class="mu-course-container mu-course-details">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mu-latest-course-single">
+                                            <figure class="mu-latest-course-img">
+                                                <a href="#"><img src="{{ courseinfo.course_image.url }}" alt="img"></a>
+                                                <figcaption class="mu-latest-course-imgcaption">
+                                                    <a href="#">{{courseinfo.course_category}}</a>
+                                                    <span><i
+                                                            class="fa fa-clock-o"></i>{{courseinfo.course_duration}}</span>
+                                                </figcaption>
+                                            </figure>
+                                            <div class="mu-latest-course-single-content">
+                                                <h2><a>{{courseinfo.course_title}}</a></h2>
+                                                <h4>Description</h4>
+                                                <p style="color:#000; font-size:18px;">{{courseinfo.course_desc |linebreaks}}</p>
+                                                <blockquote>
+
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th> Topic</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <pre style="font-size:20px;">{{courseinfo.course_chapter}}</pre>
+                                                                </td>
+                                                            </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end course content container -->
+
+                            <!-- start related course item -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="mu-related-item">
+                                        <h3>Related Courses</h3>
+                                        <div class="mu-related-item-area">
+                                            <div id="mu-related-item-slide">
+                                                {% for relatedCourses in relatedCourses %}
+                                                <div class="col-md-6">
+
+                                                    <div class="mu-latest-course-single">
+                                                        <figure class="mu-latest-course-img">
+                                                            <a href="#"><img alt="img"
+                                                                             src="{{ relatedCourses.rc_image.url }}"
+                                                                             width="550" height="300"></a>
+                                                            <figcaption class="mu-latest-course-imgcaption">
+                                                                <a href="#">{{relatedCourses.rc_category}}</a>
+                                                            </figcaption>
+                                                        </figure>
+
+                                                        <div class="mu-latest-course-single-content">
+                                                            <h4><a href="#">{{relatedCourses.rc_name}}</a></h4>
+                                                            <p>{{relatedCourses.rc_description | slice:"0:140"}}</p>
+                                                            <div class="mu-latest-course-single-contbottom">
+                                                                <span href="#" class="mu-course-price"> <i
+                                                                        class="fa fa-clock-o">&nbsp; </i>
+                                                                          {{relatedCourses.rc_duration}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                {%endfor%}
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end start related course item -->
+
+
+                        </div>
+                        <div class="col-md-3">
+                            <!-- start sidebar -->
+                            <aside class="mu-sidebar">
+                                <!-- start single sidebar -->
+                                <div class="mu-single-sidebar">
+                                    <h3>Categories</h3>
+                                    <ul class="mu-sidebar-catg">
+                                        <li><a href="">Programming</a></li>
+                                        <li><a href="">Graphics Designing Course</a></li>
+                                        <li><a href="">Networking</a></li>
+                                        <li><a href="">Offices Packages</a></li>
+                                        <li><a href="">Laptop Chip Level Repairing</a></li>
+                                    </ul>
+                                </div>
+                                <!-- end single sidebar -->
+                                <!-- start single sidebar -->
+                                <div class="mu-single-sidebar">
+                                    <h3>Tags Courses</h3>
+                                    <div class="tag-cloud">
+                                        <a>Web Pages</a>
+                                        <a>Database</a>
+                                        <a>Graphics design</a>
+                                        <a>Video Edition</a>
+                                        <a>Networking</a>
+                                        <a>Programing</a>
+                                        <a>FACT OR SWASTIK</a>
+                                        <a>Types and Entry</a>
+                                        <a>Auto Cad 2D & 3D</a>
+                                        <a>Repairing Training</a>
+                                    </div>
+                                </div>
+                                <!-- end single sidebar -->
+                            </aside>
+                            <!-- / end sidebar -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}

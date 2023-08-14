@@ -1,0 +1,252 @@
+{% extends 'include/basic.html' %}
+{% block title %} Max Pro | Home {%endblock%}
+{% load static %}
+{% block body %}
+
+<section id="mu-slider">
+    <!-- Start single slider item -->
+    <div class="mu-slider-single">
+        <div class="mu-slider-img">
+            <figure>
+                <img src="{% static 'assets/img/slider/banner1.png' %}" alt="img">
+            </figure>
+        </div>
+    </div>
+
+    <!-- Start single slider item -->
+    <div class="mu-slider-single">
+        <div class="mu-slider-img">
+            <figure>
+                <img src="{% static 'assets/img/slider/banner2.png' %}" alt="img">
+            </figure>
+        </div>
+    </div>
+
+    <!-- Start single slider item -->
+    <div class="mu-slider-single">
+        <div class="mu-slider-img">
+            <figure>
+                <img src="{% static 'assets/img/slider/banner3.png' %}" alt="img">
+            </figure>
+        </div>
+    </div>
+    <!-- Start single slider item -->
+</section>
+<!-- End Slider -->
+
+<!-- Start service  -->
+<section id="mu-service">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="mu-service-area">
+                    <!-- Start single service -->
+                    <div class="mu-service-single">
+                        <span class="fa fa-desktop"></span>
+                        <h3>Sales</h3>
+                        <p>
+                            Laptop</br>
+                            Branded PC</br>
+                            All Kind of Computer Parts</br>
+                            (AMD, INTEL)</br>
+                        </p>
+                    </div>
+                    <!-- Start single service -->
+                    <div class="mu-service-single">
+                        <span class="fa fa-users"></span>
+                        <h3>Training</h3>
+                        <p>
+                            Hardware and Networking</br>
+                            MCSE/CCNA</br>
+                            Chip level Training Laptop</br>
+                            Repairing Training</br>
+
+                        </p>
+                    </div>
+                    <!-- Start single service -->
+                    <!-- Start single service -->
+                    <div class="mu-service-single">
+                        <span class="fa fa-wrench"></span>
+                        <h3>Repair</h3>
+                        <p>
+                            Laptop, Monitor</br>
+                            LCP, UPS</br>
+                            Motherboard & </br>
+                            HardDisk etc.</br>
+                        </p>
+                    </div>
+                    <!-- Start single service -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End service  -->
+
+<!-- Start about us -->
+<section id="mu-about-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-about-us-area">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-7">
+                            <div class="mu-about-us-left">
+                                <!-- Start Title -->
+                                <div class="mu-title">
+                                    <h2>Message From Chairperson</h2>
+                                </div>
+                                <!-- End Title -->
+                                <p style="text-align:justify;">We have definitely reached to the new era of modern
+                                    technology and
+                                    the field of complete IT Solution for the last 20 years with the love,
+                                    support, cooperation, our determination and all of your care toward us.
+                                    As the possibility of this success became possible only due to the
+                                    support of all the students, people who are from the various governmental,
+                                    semi-governmental, self-supporting, self-employed, and various people from several
+                                    sectors whereas the manufacturing programme can fed proud of being in this
+                                    organization and it does always. Finally, this Institute heartily thanks to
+                                    well-wishers, parents, colleagues, teachers and all who have shown their great
+                                    honor, love, and care for this organization.
+                                    As we heartily apologize for some of the errors or the weakness arised
+                                    during the long period. </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5">
+                            <div class="mu-about-us-right">
+                                    <img src="{% static 'assets/img/chairman.jpg' %}" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End about us -->
+
+<!-- Start about us counter -->
+<section id="mu-abtus-counter">
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+</section>
+<!-- End about us counter -->
+<!-- Start features section -->
+<section id="mu-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="mu-features-area">
+                    <!-- Start Title -->
+                    <div class="mu-title">
+                        <h2>Our Premium Courses</h2>
+                        <p></p>
+                    </div>
+                    <!-- End Title -->
+                    <!-- Start features content -->
+                    <div class="mu-features-content">
+                        <div class="row">
+                            {% for permiumCourses in permiumCourses %}
+                            <div class="col-lg-4 col-md-4  col-sm-6">
+                                <div class="mu-single-feature">
+                                    <img src="{{ permiumCourses.course_icon.url }}" height="40" width="40"/>
+                                    <h4>{{permiumCourses.course_title}}</h4>
+                                    <p>{{permiumCourses.course_desc}}
+                                    </p>
+                                    <a href="{% url 'premiumcourse' %}">Register Now</a>
+                                </div>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                    <!-- End features content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End features section -->
+
+
+<!-- Start testimonial -->
+<section id="mu-testimonial">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-testimonial-area">
+                    <div id="mu-testimonial-slide" class="mu-testimonial-content">
+
+                        <div class="mu-testimonial-item">
+                              <div class="mu-testimonial-info">
+                                <h4>Bridge Courses</h4>
+                            </div>
+                            <div class="mu-testimonial-quote">
+                                <span>
+                                    <p>
+                            With our experience and knowledge in Bridge Course, we are far more experience than any other
+                            institute in Kalanki.
+                            Premium Bridge Course offers extensive syllabus to bridge the gap between School and
+                            Higher Secondary Level. </p>
+                                </span>
+                            </div>
+                            <div class="mu-testimonial-img">
+                                <img src="{% static 'assets/img/BridgeCourseimg/BridgeCourseImage.jpg' %}" alt="img">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="mu-from-blog">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mu-from-blog-area">
+                    <!-- start title -->
+                    <div class="mu-title">
+                        <h2>Why Bridge Course at Premium</h2>
+                    </div>
+                    <!-- end title -->
+                    <div class="mu-from-blog-content">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <article class="mu-blog-single-item">
+                                    <div class="mu-blog-description">
+                                        <p>
+                                         <ol>
+                                        <li>Highly Experienced Teacher with a long teaching experience</li>
+                                        <li>Regular monitoring of the teaching method along with updated syllabus</li>
+                                        <li>Working test based on the entranced tests of various reputed Colleges and
+                                            Schools
+                                        </li>
+                                        <li>In house library and resource centers for Bridge Course Students</li>
+                                        <li> Interactive multimedia for Special Classes</li>
+                                    </ol>
+                                    </p>
+                                        <h3 class="mu-know-more-btn">To Know More About Us</h3>
+                                        <a class="mu-contact-us-btn" href="/contact">Contact Us</a>
+                                    </div>
+                                </article>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End testimonial -->
+
+
+{%endblock%}
+
